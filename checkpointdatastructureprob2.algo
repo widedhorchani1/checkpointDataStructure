@@ -1,0 +1,29 @@
+ALGORITHM PROBLEM2
+VAR
+      i, j, sum  : INTEGER:=0;
+    n1, n2 : INTEGER;
+    tab1 : ARRAY_OF INTEGER[n1];
+    tab2 : ARRAY_OF INTEGER[n2];
+BEGIN
+    REPEAT
+    Write("Please enter the first array length");
+    Read(n1);
+    Write("Please enter the second array length");
+    Read(n2);
+    UNTIL (n1 <0 AND n2<0)
+    FOR i FROM 0 TO n1-1 DO
+        Read(tab1[i]);
+    END_FOR
+    FOR j FROM 0 TO n2-1 DO
+        Read(tab2[j]);
+    END_FOR
+    WHILE (i < n1) DO
+        FOR j FROM 0 TO n2-1 DO
+            IF (tab1[i] = tab2[j]) THEN
+                sum = sum + tab1[i]
+            END_IF
+        END_FOR
+        i=i+1;
+    END_WHILE
+    Write("sum of overlapping elemetns is: ", sum*2)
+END

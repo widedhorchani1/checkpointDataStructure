@@ -1,0 +1,49 @@
+ALGORITHM PROBLEM1
+VAR
+    i, j, sum  : INTEGER:=0;
+    n1, n2 : INTEGER;
+    tab1 : ARRAY_OF INTEGER[n1];
+    tab2 : ARRAY_OF INTEGER[n2];
+BEGIN
+//controle de saisie
+    REPEAT
+    Write("Please enter the first array length");
+    Read(n1);
+    Write("Please enter the second array length");
+    Read(n2);
+    UNTIL (n1 <0 AND n2<0)
+    FOR i FROM 0 TO n1-1 DO
+        Read(tab1[i]);
+    END_FOR
+    FOR j FROM 0 TO lg2-1 DO
+        Read(tab2[j]);
+    END_FOR
+    WHILE (i < n1) DO
+        WHILE (j < n2) DO
+            IF (tab1[i] <> tabT2[j]) THEN
+                j = j +1 
+            ELSE
+                i = i+1;
+                j=0
+            END_IF
+        END_WHILE
+        sum = sum + tab1[i]
+        i=i+1;
+        j=0;
+    END_WHILE
+    WHILE (j < n2) DO
+        WHILE (i < n1) DO
+            IF (tab1[i] <> tab2[j]) THEN
+                i = i +1 
+            ELSE
+                j = j+1;
+                i=0
+            END_IF
+        END_WHILE
+        sum = sum + tab2[j]
+        j=j+1;
+        i=0;
+    END_WHILE
+    
+    Write("sum of distincts elements is :", sum)
+END
